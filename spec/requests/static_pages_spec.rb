@@ -20,4 +20,13 @@ describe "Static pages" do
     
   end
   
+  describe "About page" do
+    
+    it "Should have the content 'About us'" do
+      visit '/static_pages/about'
+      expect(page).to have_content('About Us')
+    end
+    
+  end
+  
 end
