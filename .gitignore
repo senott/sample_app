@@ -16,7 +16,11 @@
 /tmp
 
 # Ignore other unneeded files
+<<<<<<< HEAD
 database.yml
+=======
+# database.yml
+>>>>>>> static-pages
 doc/
 *.swp
 *~
