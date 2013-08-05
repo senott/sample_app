@@ -16,11 +16,7 @@
 /tmp
 
 # Ignore other unneeded files
-<<<<<<< HEAD
-database.yml
-=======
 # database.yml
->>>>>>> static-pages
 doc/
 *.swp
 *~
@@ -28,3 +24,4 @@ doc/
 .DS_STORE
 .idea
 .secret
+.Gemfile.lock
