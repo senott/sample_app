@@ -8,7 +8,7 @@ describe "Static pages" do
     
     it "should have the contant 'Sample App'" do
       visit '/static_pages/home'
-      expect(page).to have_content ('Sample App')
+      expect(page).to have_content ("Sample App")
     end
     
     it "should have the base title" do
