@@ -4,16 +4,27 @@ namespace :db do
   
   task populate: :environment do
     
-    User.create!(name: "Example User",
-                 email: "example@railstutorial.org",
-                 password: "foobar",
-                 password_confirmation: "foobar")
+    make_users
+    make_microposts
+    make_relationships
+    
+  end
+  
+end
 
-    User.create!(name: "Diego de A. Senott",
-                 email: "senott@yahoo.com",
-                 password: "foobar",
-                 password_confirmation: "foobar",
-                 admin: true)
+def make_users  
+    
+    admin = User.create!(name: "Example User",
+                         email: "example@railstutorial.org",
+                         password: "foobar",
+                         password_confirmation: "foobar",
+                         admin: true)
+
+    admin = User.create!(name: "Diego de A. Senott",
+                         email: "senott@yahoo.com",
+                         password: "foobar",
+                         password_confirmation: "foobar",
+                         admin: true)
                  
     99.times do |n|
       
@@ -28,8 +39,12 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
       
-    end 
+    end
     
+end     
+   
+def make_microposts
+      
     users = User.all(limit: 6)
     50.times do
       
@@ -39,6 +54,15 @@ namespace :db do
       
     end                
     
-  end
+end
+
+def make_relationships
   
+  users = User.all
+  user = users.first
+  followed_users = users[2..50]
+  followers = users[3..40]
+  followed_users.each { |followed| user.follow!(followed) }
+  followers.each { |follower| follower.follow!(user) }
+    
 end
