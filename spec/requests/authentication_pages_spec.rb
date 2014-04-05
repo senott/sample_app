@@ -127,6 +127,20 @@ describe "Authentication" do
             
           end
           
+          describe "visiting the following page" do
+            
+            before { visit following_user_path(user) }
+            it { should have_title('Sign in') }
+            
+          end
+          
+          describe "visiting the followers page" do
+            
+            before { visit followers_user_path(user) }
+            it { should have_title('Sign in') }
+            
+          end
+          
           describe "as wrong user" do
             
             let(:user) { FactoryGirl.create(:user) }
